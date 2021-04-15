@@ -1,5 +1,17 @@
 package com.cursojava.amazonviewer.model;
 
+/**
+ * <h1>Film</h1>
+ * Film es una clase padre abastracta.
+ * <p>
+ * Esta clase es la clase base de la família Films, como es abstracta
+ * no pueden crearse instancias. Contiene el método abstracto
+ * {@code view()} que es obligatório implementar para todo aquél que pertenezca a la família.
+ * 
+ * @author moises.aguilar
+ * @version 1.0
+ * @since 2018
+ * */
 public abstract class Film {
 	private String title;
 	private String genre;
@@ -46,7 +58,7 @@ public abstract class Film {
 	public void setYear(short year) {
 		this.year = year;
 	}
-	public Boolean getViewed() {
+	public Boolean getIsViewed() {
 		
 		return this.viewed;
 	}
@@ -54,7 +66,7 @@ public abstract class Film {
 		
 		String visto = "";
 		if (viewed == true) {
-			visto = "SÃ­";
+			visto = "Sí";
 		} else {
 			visto = "No";
 		}
@@ -64,5 +76,8 @@ public abstract class Film {
 		this.viewed = viewed;
 	}
 
+	/**
+	 * {@code view()} es un método abastracto obligatorio de implementar.
+	 * */
 	public abstract void view();
 }

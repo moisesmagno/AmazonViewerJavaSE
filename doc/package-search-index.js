@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.cursojava.amazonviewer"},{"l":"com.cursojava.amazonviewer.model"}];updateSearchResults();
