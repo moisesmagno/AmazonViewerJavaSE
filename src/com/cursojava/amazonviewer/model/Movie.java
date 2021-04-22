@@ -3,15 +3,18 @@ package com.cursojava.amazonviewer.model;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.cursojava.amazonviewer.dao.MovieDAO;
+
 /**
  * Hereda de {@link Film}
  * Implementa de {@link IVisualizable}
  * */
-public class Movie extends Film implements IVisualizable {
+public class Movie extends Film implements IVisualizable, MovieDAO {
 	
 	private int id;
 	private int timeViewed;
 	
+	public Movie() {}
 	public Movie(String title, String genre, String creator, int duration, short year) {
 		super(title, genre, creator, duration);
 		setYear(year);
@@ -19,6 +22,10 @@ public class Movie extends Film implements IVisualizable {
 	
 	public int getId() {
 		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getTimeViewed() {
@@ -62,13 +69,9 @@ public class Movie extends Film implements IVisualizable {
 	}
 	
 	public static ArrayList<Movie> makeMoviesList() {
-		ArrayList<Movie> movies = new ArrayList();
+		Movie movies = new Movie();
 		
-		for (int i = 1; i <= 5; i++) {
-			movies.add(new Movie("Movie " + i, "Genero " + i, "Creador " + i, (120+1), (short)(2016+1)));
-		}
-		
-		return movies;
+		return movies.read();
 	}
 
 	/**
@@ -79,7 +82,10 @@ public class Movie extends Film implements IVisualizable {
 		setViewed(true);
 		Date dateI = startToSee(new Date());
 		
-		for (int i = 0; i < 100000; i++) {
+		Movie movie = new Movie();
+		movie.setMovieViewed(this);
+		
+		for (int i = 0; i < 1000; i++) {
 			System.out.println("Viendo ...........");
 		}
 		

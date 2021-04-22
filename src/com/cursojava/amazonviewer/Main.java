@@ -93,9 +93,9 @@ public abstract class Main {
 	}
 	
 	
-	static ArrayList<Movie> movies = Movie.makeMoviesList();
-	
+	static ArrayList<Movie> movies = new ArrayList();
 	public static void showMovies() {
+		movies = Movie.makeMoviesList();
 		int exit = 1;
 		
 		do {
@@ -103,7 +103,7 @@ public abstract class Main {
 			System.out.println(":: MOVIES ::");
 			
 			for (int i = 0; i < movies.size(); i++) {
-				System.out.println(i+1 + ". " + movies.get(i).getTitle() + " - Visto: " + movies.get(i).isViewed());
+				System.out.println(i + 1 + ". " + movies.get(i).getTitle() + " - Visto: " + movies.get(i).isViewed());
 			}
 			
 			System.out.println("0. Regresar al menu anterior.");
@@ -235,6 +235,8 @@ public abstract class Main {
 				contentReport += movie.toString() + "\n";
 			}
 		}
+		
+		//System.err.println(contentReport);
 		report.setContent(contentReport);
 		report.makeReport();
 		

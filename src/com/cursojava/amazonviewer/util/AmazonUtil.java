@@ -1,5 +1,7 @@
 package com.cursojava.amazonviewer.util;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class AmazonUtil {
@@ -34,4 +36,12 @@ public class AmazonUtil {
 		return response;
 	}
 
+	public static String getCurrentDate() {
+		Date date = new Date();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd 00:00:00.0");
+		
+		String dateFormat = format.format(date);
+		
+		return dateFormat;
+	}
 }
